@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head><title>Bill</title></head>
+<body>
+    <h2>🧾 Final Bill</h2>
+    <p><strong>Name:</strong> {{ name }}</p>
+    <p><strong>Mobile:</strong> {{ mobile }}</p>
+    <p><strong>Date:</strong> {{ date.strftime('%d-%m-%Y %H:%M') }}</p>
+
+    <table border="1" cellpadding="8">
+        <tr><th>Item</th><th>Price</th><th>Qty</th><th>Subtotal</th></tr>
+        {% for item in items %}
+        <tr>
+            <td>{{ item[1] }}</td>
+            <td>₹{{ item[2] }}</td>
+            <td>{{ item[3] }}</td>
+            <td>₹{{ item[4] }}</td>
+        </tr>
+        {% endfor %}
+        <tr><td colspan="3"><strong>Total</strong></td><td>₹{{ total }}</td></tr>
+    </table>
+    <br><a href="/">⬅ Back to Billing</a>
+</body>
+</html>

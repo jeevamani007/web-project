@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hotel Billing</title>
+</head>
+<body>
+    <h2>🧾 Hotel Billing Form</h2>
+    <form method="POST">
+        <label>Name:</label><br>
+        <input type="text" name="customer_name" required><br><br>
+        <label>Mobile:</label><br>
+        <input type="text" name="mobile" required><br><br>
+
+        <h3>Select Items:</h3>
+        {% for item, price in menu.items() %}
+            <label>{{ item }} - ₹{{ price }}</label>
+            <input type="checkbox" name="item" value="{{ item }}">
+            Qty: <input type="number" name="qty" min="1" value="1"><br><br>
+        {% endfor %}
+
+        <button type="submit">Generate Bill</button>
+    </form>
+    <br>
+    <a href="/view">View All Bills</a>
+</body>
+</html>

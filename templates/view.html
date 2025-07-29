@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Bills</title>
+</head>
+<body>
+    <h2>📜 Customer Bills</h2>
+    <table border="1" cellpadding="8">
+        <tr><th>ID</th><th>Name</th><th>Mobile</th><th>Date</th><th>Total</th></tr>
+        {% for bill in bills %}
+        <tr>
+            <td>{{ bill.id }}</td>
+            <td>{{ bill.customer_name }}</td>
+            <td>{{ bill.mobile }}</td>
+            <td>{{ bill.bill_date.strftime('%d-%m-%Y %H:%M') }}</td>
+            <td>₹{{ bill.total }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br><a href="/">⬅ Back to Billing</a>
+</body>
+</html>
